@@ -24,3 +24,6 @@ los daños que estos suelen causar.
 - Validar la base de datos con JSON SCHEMA
   
 - Desarrollo de consultas usando agreggates
+  
+## Creditos
+Made with ❤️ by @luceroobispo
