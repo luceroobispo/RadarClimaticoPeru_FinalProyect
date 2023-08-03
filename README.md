@@ -11,4 +11,4 @@
 
 - Validar la base de datos con JSON SCHEMA
   
-- Desarrollo de consultas usando 
+- Desarrollo de consultas usando agreggates
