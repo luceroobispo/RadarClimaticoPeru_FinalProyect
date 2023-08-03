@@ -210,22 +210,22 @@ INSERT INTO Distrito VALUES (9, 'Huata', 9)
 -- REPORTE CLIMA 
 
 INSERT INTO ReporteClima (idReporte, institucion, fecha, hora, nivelUrgencia, descripcion, idDistrito)
-VALUES (1, 'Instituci髇 XYZ', '2023-06-17', '12:00:00', 'Alto', 'Reporte de clima actual', 1);
+VALUES (1, 'Instituci贸n XYZ', '2023-06-17', '12:00:00', 'Alto', 'Reporte de clima actual', 1);
 
 INSERT INTO ReporteClima (idReporte, institucion, fecha, hora, nivelUrgencia, descripcion, idDistrito)
-VALUES (2, 'Instituci髇 ABC', '2023-06-18', '10:30:00', 'Medio', 'Reporte de clima semanal', 2);
+VALUES (2, 'Instituci贸n ABC', '2023-06-18', '10:30:00', 'Medio', 'Reporte de clima semanal', 2);
 
 INSERT INTO ReporteClima (idReporte, institucion, fecha, hora, nivelUrgencia, descripcion, idDistrito)
-VALUES (3, 'Instituci髇 123', '2023-06-19', '14:15:00', 'Bajo', 'Reporte de clima mensual', 3);
+VALUES (3, 'Instituci贸n 123', '2023-06-19', '14:15:00', 'Bajo', 'Reporte de clima mensual', 3);
 
 INSERT INTO ReporteClima (idReporte, institucion, fecha, hora, nivelUrgencia, descripcion, idDistrito)
-VALUES (4, 'Instituci髇 XYZ', '2023-06-20', '09:45:00', 'Alto', 'Reporte de clima diario', 1);
+VALUES (4, 'Instituci贸n XYZ', '2023-06-20', '09:45:00', 'Alto', 'Reporte de clima diario', 1);
 
 INSERT INTO ReporteClima (idReporte, institucion, fecha, hora, nivelUrgencia, descripcion, idDistrito)
-VALUES (5, 'Instituci髇 ABC', '2023-06-21', '16:30:00', 'Medio', 'Reporte de clima semanal', 4);
+VALUES (5, 'Instituci贸n ABC', '2023-06-21', '16:30:00', 'Medio', 'Reporte de clima semanal', 4);
 
 INSERT INTO ReporteClima (idReporte, institucion, fecha, hora, nivelUrgencia, descripcion, idDistrito)
-VALUES (6, 'Instituci髇 ERT', '2023-06-24', '18:30:00', 'Medio', 'Reporte de clima mensual', 6);
+VALUES (6, 'Instituci贸n ERT', '2023-06-24', '18:30:00', 'Medio', 'Reporte de clima mensual', 6);
 INSERT INTO ReporteClima (idReporte, institucion, fecha, hora, nivelUrgencia, descripcion, idDistrito)
 VALUES (7, 'Institucion Peruana del clima', '2023-06-25', '14:45:00', 'Medio', 'Reporte de clima mensual', 9);
 
@@ -330,9 +330,9 @@ SELECT * FROM Comprobante_pago GO
 
 -- DATA MANIPULATION LANGUAGE ---------------------------------------------
 
--- Creaci髇 de procedimientos almacenados y/o funciones, agregaciones, joins, subconsultas, cursores. Para cada una de las consultas se indica el prop髎ito de la misma
+-- Creaci贸n de procedimientos almacenados y/o funciones, agregaciones, joins, subconsultas, cursores. Para cada una de las consultas se indica el prop贸sito de la misma
 
--- 1) Dise馻r la funci髇 que retorne una tabla indicando la cantidad de usuarios por plan de tarifa.
+-- 1) Dise帽ar la funci贸n que retorne una tabla indicando la cantidad de usuarios por plan de tarifa.
 CREATE FUNCTION	dbo.uf_ObtenerCantUsuarios_PlanTarifa()
 RETURNS TABLE
 AS
@@ -347,7 +347,7 @@ GO
 
 SELECT * FROM uf_ObtenerCantUsuarios_PlanTarifa() GO
 
--- 2) Dise馻r el procedimiento almacenado que permita calcular nuestra ganancia total por el pago de las membresias, en un a駉 determinado
+-- 2) Dise帽ar el procedimiento almacenado que permita calcular nuestra ganancia total por el pago de las membresias, en un a帽o determinado
 CREATE FUNCTION	dbo.uf_ObtenerTBMembresia_anio( 
 @YEAR INT 
 )
@@ -380,7 +380,7 @@ DECLARE @OUTGANANCIA INT
 EXEC usp_gananciaTotal_membresia_anio '2023', @GANANCIA = @OUTGANANCIA OUTPUT
 PRINT 'La ganancia por el pago de las membresias es de ' + CONVERT(VARCHAR(5), @OUTGANANCIA)
 
--- 3) Dise馻r una funci髇 que retorne una tabla mostrando la(s) provincia(s) en donde se ha detectado la maxima cantidad de eventos climaticos
+-- 3) Dise帽ar una funci贸n que retorne una tabla mostrando la(s) provincia(s) en donde se ha detectado la maxima cantidad de eventos climaticos
 CREATE VIEW vw_tbProvinciasxEventosClimaticos
 AS
 SELECT P.idProvincia, P.nombre, COUNT(EC.idEvento) AS [Nro Eventos Climaticos]
@@ -407,7 +407,7 @@ GO
 
 SELECT * FROM uf_ObtenerProvincia_MaxEventosClimaticos()
 
--- 4) Obtener la lista de usuarios que han recibido una notificaci髇 espec韋ica.
+-- 4) Obtener la lista de usuarios que han recibido una notificaci贸n espec铆fica.
 CREATE FUNCTION ObtenerUsuariosPorNotificacion(@idNotificacion int)
 RETURNS TABLE
 AS
@@ -508,7 +508,7 @@ GROUP BY
     D.idDistrito, D.nombre, R.nivelUrgencia;
 
 
--- 11)FUNCION PARA Obtener todos los usuarios con su respectivo m閠odo de pago:
+-- 11)FUNCION PARA Obtener todos los usuarios con su respectivo m茅todo de pago:
 CREATE FUNCTION ObtenerUsuariosConMetodoPago()
 RETURNS TABLE
 AS
@@ -531,7 +531,7 @@ SELECT * FROM dbo.ObtenerUsuariosConMetodoPago();
 GO
 
 
--- 12) PROCEDURE para Obtener todos los m閠odos de prevenci髇 y tipo de evento clim醫ico dependiendo del tipo de alerta y estado
+-- 12) PROCEDURE para Obtener todos los m茅todos de prevenci贸n y tipo de evento clim谩tico dependiendo del tipo de alerta y estado
 CREATE PROCEDURE usp_ObtenerMPrevencionXAlertaEstado
     @tipoAlerta CHAR(1),
     @estadoAlerta BIT
@@ -560,7 +560,7 @@ EXEC usp_ObtenerMPrevencionXAlertaEstado @tipoAlerta = 'R', @estadoAlerta = 1;
 EXEC usp_ObtenerMPrevencionXAlertaEstado @tipoAlerta = 'A', @estadoAlerta = 0;
 
 
--- 13) Obtener el nombre de los distritos, id evento, grado y descripci髇 de los que tienen al menos un evento clim醫ico venidero activo (Simple).
+-- 13) Obtener el nombre de los distritos, id evento, grado y descripci贸n de los que tienen al menos un evento clim谩tico venidero activo (Simple).
 
 SELECT d.nombre, ec.idEvento, ec.grado, ec.descripcion, ec.eventoVenidero
 FROM Distrito d
@@ -568,7 +568,7 @@ JOIN EventoClimatico ec ON d.idDistrito = ec.idDistrito
 AND ec.eventoVenidero = 1;
 
 
--- 14) Funci髇 para obtener a los usuarios dependiendo de la provincia a la que pertenece.
+-- 14) Funci贸n para obtener a los usuarios dependiendo de la provincia a la que pertenece.
 
 CREATE FUNCTION OUsuariosPorProvincia(@nombreProvincia VARCHAR(50))
 RETURNS TABLE
@@ -585,7 +585,7 @@ RETURN (
 SELECT * FROM OUsuariosPorProvincia('Huancayo');
 
 
--- 15) Muestra datos relevantes de pron髎tico meteorol骻ico y reporte clima en el transcurso del tiempo solicitado.
+-- 15) Muestra datos relevantes de pron贸stico meteorol贸gico y reporte clima en el transcurso del tiempo solicitado.
 
 CREATE FUNCTION obtenerClimaticaporanio(@fechaInicio DATE, @fechaFin DATE)
 RETURNS TABLE
